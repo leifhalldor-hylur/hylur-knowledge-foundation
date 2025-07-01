@@ -25,7 +25,7 @@ export function ChatInterface({ userId }: ChatInterfaceProps) {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello! I\'m your AI assistant with access to your knowledge base. I can help you find information from your documents, analyze your data tables, and provide insights. What would you like to know?',
+      content: 'Hello! I\'m Hylur, your AI assistant with access to your knowledge base. I can help you find information from your documents, analyze your data tables, and provide insights. What would you like to know?',
       timestamp: new Date(),
     },
   ]);
@@ -82,7 +82,7 @@ export function ChatInterface({ userId }: ChatInterfaceProps) {
         setError(errorData.error || 'Failed to get response');
         toast({
           title: 'Error',
-          description: 'Failed to get AI response',
+          description: 'Failed to get Hylur response',
           variant: 'destructive',
         });
       }
@@ -161,7 +161,7 @@ export function ChatInterface({ userId }: ChatInterfaceProps) {
               <CardContent className="p-3">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  AI is thinking...
+                  Hylur is thinking...
                 </div>
               </CardContent>
             </Card>
@@ -185,7 +185,7 @@ export function ChatInterface({ userId }: ChatInterfaceProps) {
         <form onSubmit={handleSubmit} className="flex gap-2">
           <Textarea
             ref={textareaRef}
-            placeholder="Ask about your documents, data tables, or web links..."
+            placeholder="Ask Hylur about your documents, data tables, or web links..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}

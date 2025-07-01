@@ -24,7 +24,7 @@ const navigation = [
   { name: 'Documents', href: '/dashboard/documents', icon: FileText },
   { name: 'Data Tables', href: '/dashboard/data-tables', icon: Table },
   { name: 'Web Links', href: '/dashboard/web-links', icon: LinkIcon },
-  { name: 'AI Assistant', href: '/dashboard/chat', icon: MessageCircle },
+  { name: 'Ask Hylur', href: '/dashboard/chat', icon: MessageCircle },
 ];
 
 export function DashboardSidebar() {

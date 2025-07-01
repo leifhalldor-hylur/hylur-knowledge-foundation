@@ -41,7 +41,7 @@ export function QuickActions() {
           <Link href="/dashboard/chat">
             <Button variant="outline" className="w-full h-20 flex-col gap-2">
               <MessageCircle className="w-6 h-6" />
-              <span className="text-sm">Ask AI</span>
+              <span className="text-sm">Ask Hylur</span>
             </Button>
           </Link>
         </div>

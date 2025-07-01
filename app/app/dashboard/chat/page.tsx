@@ -18,10 +18,10 @@ export default async function ChatPage() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold flex items-center gap-3">
           <MessageCircle className="w-8 h-8 text-primary" />
-          AI Assistant
+          Ask Hylur
         </h1>
         <p className="text-muted-foreground mt-2">
-          Chat with your AI team that has access to all your documents and data
+          Chat with Hylur who has access to all your documents and data
         </p>
       </div>
 
