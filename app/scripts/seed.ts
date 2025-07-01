@@ -8,29 +8,29 @@ async function main() {
   console.log('🌱 Starting database seeding...');
 
   // Hash passwords
-  const hashedJohnPassword = await bcrypt.hash('johndoe123', 12);
-  const hashedFounderPassword = await bcrypt.hash('hylur2024!', 12);
+  const hashedHaukurPassword = await bcrypt.hash('haukur2024!', 12);
+  const hashedLeifPassword = await bcrypt.hash('leif2024!', 12);
 
-  // Create founder users
-  const johnDoe = await prisma.user.upsert({
-    where: { email: 'john@doe.com' },
+  // Create founder users  
+  const haukurFounder = await prisma.user.upsert({
+    where: { email: 'haukur@hylur.net' },
     update: {},
     create: {
-      name: 'John Doe',
-      email: 'john@doe.com',
-      password: hashedJohnPassword,
+      name: 'Haukur Kristinsson',
+      email: 'haukur@hylur.net',
+      password: hashedHaukurPassword,
       role: 'founder',
       emailVerified: new Date(),
     },
   });
 
-  const sarahFounder = await prisma.user.upsert({
-    where: { email: 'sarah@hylur.net' },
+  const leifFounder = await prisma.user.upsert({
+    where: { email: 'leif@hylur.net' },
     update: {},
     create: {
-      name: 'Sarah Chen',
-      email: 'sarah@hylur.net',
-      password: hashedFounderPassword,
+      name: 'Leif Eriksson',
+      email: 'leif@hylur.net',
+      password: hashedLeifPassword,
       role: 'founder',
       emailVerified: new Date(),
     },
@@ -46,7 +46,7 @@ async function main() {
       filePath: '/uploads/documents/business-plan-2024.pdf',
       fileSize: 2547891,
       mimeType: 'application/pdf',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
     },
     {
       filename: 'market-research.pdf',
@@ -54,7 +54,7 @@ async function main() {
       filePath: '/uploads/documents/market-research.pdf',
       fileSize: 1834567,
       mimeType: 'application/pdf',
-      userId: sarahFounder.id,
+      userId: leifFounder.id,
     },
     {
       filename: 'technical-specifications.pdf',
@@ -62,7 +62,7 @@ async function main() {
       filePath: '/uploads/documents/technical-specifications.pdf',
       fileSize: 967234,
       mimeType: 'application/pdf',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
     },
   ];
 
@@ -79,7 +79,7 @@ async function main() {
     data: {
       name: 'Customer Analytics Q4 2024',
       description: 'Quarterly customer engagement and revenue metrics',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
       columns: [
         { name: 'Customer ID', type: 'string' },
         { name: 'Company', type: 'string' },
@@ -105,7 +105,7 @@ async function main() {
     data: {
       name: 'Product Performance Metrics',
       description: 'Key performance indicators for our AI products',
-      userId: sarahFounder.id,
+      userId: leifFounder.id,
       columns: [
         { name: 'Product', type: 'string' },
         { name: 'Users', type: 'number' },
@@ -132,42 +132,42 @@ async function main() {
       url: 'https://platform.openai.com/docs',
       description: 'Complete API documentation for GPT-4 integration',
       favicon: 'https://i.ytimg.com/vi/LFjibtsCOrs/maxresdefault.jpg',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
     },
     {
       title: 'Y Combinator Startup School',
       url: 'https://www.startupschool.org/',
       description: 'Free online course for startup founders',
       favicon: 'https://www.startupschool.org/favicon.ico',
-      userId: sarahFounder.id,
+      userId: leifFounder.id,
     },
     {
       title: 'TechCrunch AI News',
       url: 'https://techcrunch.com/category/artificial-intelligence/',
       description: 'Latest news and trends in artificial intelligence',
       favicon: 'https://techcrunch.com/favicon.ico',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
     },
     {
       title: 'Next.js Documentation',
       url: 'https://nextjs.org/docs',
       description: 'Official Next.js framework documentation',
       favicon: 'https://nextjs.org/favicon.ico',
-      userId: sarahFounder.id,
+      userId: leifFounder.id,
     },
     {
       title: 'Prisma Database Toolkit',
       url: 'https://www.prisma.io/docs',
       description: 'Modern database toolkit documentation',
       favicon: 'https://www.prisma.io/favicon.ico',
-      userId: johnDoe.id,
+      userId: haukurFounder.id,
     },
     {
       title: 'Tailwind CSS Framework',
       url: 'https://tailwindcss.com/docs',
       description: 'Utility-first CSS framework documentation',
       favicon: 'https://tailwindcss.com/favicon.ico',
-      userId: sarahFounder.id,
+      userId: leifFounder.id,
     },
   ];
 
@@ -186,8 +186,8 @@ async function main() {
   console.log(`- Created 2 demo data tables`);
   console.log(`- Created ${demoWebLinks.length} demo web links`);
   console.log('\n🔐 Login credentials:');
-  console.log('Founder 1: john@doe.com / johndoe123');
-  console.log('Founder 2: sarah@hylur.net / hylur2024!');
+  console.log('Founder 1: haukur@hylur.net / haukur2024!');
+  console.log('Founder 2: leif@hylur.net / leif2024!');
 }
 
 main()
